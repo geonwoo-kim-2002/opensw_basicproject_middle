@@ -47,10 +47,10 @@ void printWords(int num) {
 			printf(" ");
 		}
 		for (int j = 0;j < num;j++) {
-			printf("%c", buffer[i * num + j]);
+			printf("%c", *(buffer+i * num + j));
 		}
 	}
-	printf("\n\n\t\t\t\t\t\t계속하려면 아무 키나 누르십시오");
+	printf("\n\n\t\t\t\t\t\t\t  계속하려면 아무 키나 누르십시오");
 	getch();
 }
 

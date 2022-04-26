@@ -24,7 +24,7 @@ void Plusword() {
 	printf("\n\t\t\t\t\t\t\t\t   단어 입력: ");
 	scanf_s("%s", word, sizeof(char) * (num + 1));
 	getchar();
-	if (word[num - 1] != NULL && word[num] == NULL) {
+	if (*(word+num - 1) != NULL && *(word+num) == NULL) {
 		FILE* al = fopen(textAlphabet(num), "r+");
 		fseek(al, 0, SEEK_END);
 		size = ftell(al);
@@ -36,7 +36,7 @@ void Plusword() {
 		count = 0;
 		for (int i = 0;i < size / num;i++) {
 			for (int j = 0;j < num;j++) {
-				if (buffer[(num * i) + j] == word[j])
+				if (*(buffer+(num * i) + j) == *(word+j))
 					count += 1;
 			}
 			if (count == num)

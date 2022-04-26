@@ -34,7 +34,7 @@ void Game() {
 
 	ans = (char*)calloc(number + 1, sizeof(char));
 	for (int i = 0;i < number;i++) {
-		ans[i] = '_';
+		*(ans+i) = '_';
 	}
 
 	FILE* al = fopen(textAlphabet(number), "r");
@@ -48,7 +48,7 @@ void Game() {
 	a = (rand() % (size / number)) * number;
 	word = (char*)calloc(number + 1, sizeof(char));
 	for (int i = 0;i < number;i++) {
-		word[i] = buffer[a + i];
+		*(word + i) = *(buffer + a + i);
 	}
 
 	while (1) {
@@ -61,7 +61,7 @@ void Game() {
 		}
 
 		for (int i = 0;i < number;i++) {
-			printf("%c ", ans[i]);
+			printf("%c ", *(ans+i));
 		}
 
 		printf("\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t      목숨 X %d", life);
@@ -76,8 +76,8 @@ void Game() {
 		}
 
 		for (int i = 0;i < number;i++) {
-			if (word[i] == s) {
-				ans[i] = s;
+			if (*(word+i) == s) {
+				*(ans+i) = s;
 				count += 1;
 			}
 		}
@@ -95,7 +95,7 @@ void Game() {
 				printf(" ");
 			}
 			for (int i = 0;i < number;i++) {
-				printf("%c ", ans[i]);
+				printf("%c ", *(ans+i));
 			}
 			printf("\n\n\n\n\n\n\n\n\n\t\t\t\t\t        ******************** 축하합니다!! ********************\n");
 			break;
